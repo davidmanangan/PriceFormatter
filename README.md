@@ -22,7 +22,7 @@ $ mvn clean spring-boot:run
 ```
 
 
-Alternatively, inside the project directory, using Java, type the following command in the terminal to run the packaged JAR file.
+Alternatively, using Java, go inside the project directory and execute the following command to run the packaged JAR file.
 
 ```
 $ java -jar target/priceformatter-0.0.1-SNAPSHOT.jar
@@ -32,7 +32,6 @@ Once the App is running, access the UI by entering the following URL in your bro
 
 ```
 http://localhost:8080/
-
 ```
 
 #### Modules
@@ -44,10 +43,24 @@ The UI is the main interface for entering the prices that will be formatted by t
 
 Note: The compiled Javascript files are already included in the package and there is no need to recompile and run the UI code. For reference, the UI source code  is located in `src/main/js/priceformatter-ui` directory.
 
+To build and run the UI, go to the UI source code directoy and run the following commands:
+
+```
+$ npm run build
+
+$ ng serve
+```
+
 
 ##### II. API
 
 The API contains the logic that will process the input coming from the UI and will send back the formatted values for BF, DP and FP.
 
+Note: The compiled JAR file is already included in the package. To recompile and re-run the test scripts. Run the following command in the project directory:
 
+```
+mvn clean package
+```
+
+Thank you.
 
