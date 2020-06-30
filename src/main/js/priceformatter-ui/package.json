@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && echo 'deleting public folder content' && rm -rf ../../resources/public/ && mkdir ../../resources/public && echo 'moving compiled JS to public folder' && mv dist/priceformatter-ui/* ../../resources/public/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -17,7 +17,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatTableModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSelectModule
   } from '@angular/material'
 
 @NgModule({
@@ -37,6 +38,7 @@ import {
     MatCardModule,
     MatTableModule,
     MatTooltipModule,
+    MatSelectModule,
     HttpClientModule,
     FormsModule
   ],

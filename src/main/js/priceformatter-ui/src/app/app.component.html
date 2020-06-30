@@ -28,7 +28,11 @@
       <mat-grid-tile [colspan]="2" [rowspan]="4" >
         <mat-form-field>
           <mat-label>Display Format</mat-label>
-          <input #format [(ngModel)]="formatInput"  matInput>
+          <mat-select [(ngModel)]="formatInput">
+            <mat-option *ngFor="let dispFormat of formats" [value]="dispFormat.value" >
+              {{dispFormat.viewValue}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="2" [rowspan]="4" >
@@ -59,7 +63,7 @@
      </ng-container>
      <ng-container matColumnDef="format">
       <th mat-header-cell *matHeaderCellDef> Display Format </th>
-      <td mat-cell *matCellDef="let request"> {{request.format}} </td>
+      <td mat-cell *matCellDef="let request"> {{(request.format == 1) ? "Decimal" : (request.format == 100) ? "Percentage" :(request.format == 1000) ? "Per Mile" :(request.format == 10000) ? "Basis Point" :request.format}} </td>
     </ng-container>
     <ng-container matColumnDef="dpl">
       <th mat-header-cell *matHeaderCellDef> DPL</th>
@@ -75,15 +79,15 @@
     </ng-container>
     <ng-container matColumnDef="bf">
       <th mat-header-cell *matHeaderCellDef> BF </th>
-      <td mat-cell *matCellDef="let request"> {{request.bf}} </td>
+      <td mat-cell *matCellDef="let request"> {{request.bf  }} </td>
     </ng-container>
     <ng-container matColumnDef="dp">
       <th mat-header-cell *matHeaderCellDef> DP </th>
-      <td mat-cell *matCellDef="let request"> {{request.dp}} </td>
+      <td mat-cell *matCellDef="let request"> {{request.dp  }} </td>
     </ng-container>
     <ng-container matColumnDef="fp">
       <th mat-header-cell *matHeaderCellDef> FP </th>
-      <td mat-cell *matCellDef="let request"> {{request.fp}} </td>
+      <td mat-cell *matCellDef="let request"> {{request.fp  }} </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

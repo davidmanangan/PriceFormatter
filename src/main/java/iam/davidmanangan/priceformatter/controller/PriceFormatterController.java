@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import iam.davidmanangan.priceformatter.model.PriceFormat;
 import iam.davidmanangan.priceformatter.model.PriceFormatRequest;
+import iam.davidmanangan.priceformatter.model.PriceFormatResponse;
 import iam.davidmanangan.priceformatter.service.PriceFormatterService;
 
 
@@ -21,7 +22,7 @@ public class PriceFormatterController {
 	PriceFormatterService priceFormatterService;
 	
 	@PostMapping("/format-price")
-	public PriceFormat formatPrice(@RequestBody PriceFormatRequest pfr) {
+	public PriceFormatResponse formatPrice(@RequestBody PriceFormatRequest pfr) {
 		
 		PriceFormat pf = new PriceFormat();
 		
@@ -35,6 +36,18 @@ public class PriceFormatterController {
 		pf.setDp(priceFormatterService.getDP(pf));
 		pf.setFp(priceFormatterService.getFP(pf));
 		
-		return pf;
+		
+		PriceFormatResponse pfResponse 
+			= new PriceFormatResponse(
+					pfr.getRawPrice(),
+					pfr.getFormat(),
+					pfr.getScale(),
+					pfr.getFpl(),
+					pfr.getDpl(),
+					pf.getBf().toString(),
+					pf.getDp().toString(),
+					pf.getFp().toString());
+		
+		return pfResponse;
 	}
 }
