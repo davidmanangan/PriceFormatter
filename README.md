@@ -1,4 +1,6 @@
-# Coding Task - Completed by David Manangan
+# Price Formatter
+
+A personal practice project using Angular's Material UI components and a Spring Boot 2 Backend
 
 ## Tech Stack:
 - Angular 8
